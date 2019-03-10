@@ -11,13 +11,8 @@ namespace Iterators
         static void Main(string[] args)
         {
             Client client = new Client();
-            IteratorDouble iterator = client.CreateIterator();
-
-            while (iterator.HasNext())
-            {
-                double num = iterator.Next();
-                Console.Write(num + " ");
-            }
+            WriteClient wClient = new WriteClient(client);
+            wClient.PrintClient();
 
             Console.ReadKey();
         }
