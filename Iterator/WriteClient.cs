@@ -17,10 +17,20 @@ namespace Iterators
 
         public void PrintClient()
         {
+            double num;
             IteratorDouble iterator = client.CreateIterator();
+
             while (iterator.HasNext())
             {
-                double num = iterator.Next();
+                num = iterator.Next();
+                Console.Write(num + " ");
+            }
+
+            Console.WriteLine();
+
+            while (iterator.HasPrev())
+            {
+                num = iterator.Prev();
                 Console.Write(num + " ");
             }
         }

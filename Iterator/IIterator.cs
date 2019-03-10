@@ -9,6 +9,8 @@ namespace Iterators
     interface IIterator<T>
     {
         bool HasNext();
+        bool HasPrev();
         T Next();
+        T Prev();
     }
 }

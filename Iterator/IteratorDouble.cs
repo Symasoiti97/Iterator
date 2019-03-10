@@ -34,5 +34,24 @@ namespace Iterators
             position++;
             return obj;
         }
+
+        public bool HasPrev()
+        {
+            if (position <= 0)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        public double Prev()
+        {
+            position--;
+            double obj = list[position];
+            return obj;
+        }
     }
 }
