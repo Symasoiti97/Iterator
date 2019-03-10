@@ -30,14 +30,20 @@ namespace Iterators
 
         public double Next()
         {
+            if (position == -1)
+            {
+                position+=2;
+            }
+
             double obj = list[position];
-            position++;
+            position++;            
+
             return obj;
         }
 
         public bool HasPrev()
         {
-            if (position <= 0)
+            if (position < 0)
             {
                 return false;
             }
@@ -49,8 +55,14 @@ namespace Iterators
 
         public double Prev()
         {
-            position--;
+            if (position == list.Count)
+            {
+                position -= 2;
+            }
+
             double obj = list[position];
+            position--;
+
             return obj;
         }
     }

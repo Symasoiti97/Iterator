@@ -18,20 +18,39 @@ namespace Iterators
         public void PrintClient()
         {
             double num;
+            bool flag = true;
             IteratorDouble iterator = client.CreateIterator();
 
-            while (iterator.HasNext())
+            Console.WriteLine("1.Next 2.Prev");
+
+            while (flag)
             {
-                num = iterator.Next();
-                Console.Write(num + " ");
+                ConsoleKeyInfo key = Console.ReadKey(true);
+
+                switch (key.Key)
+                {
+                    case ConsoleKey.D1: GetNext(); break;
+                    case ConsoleKey.D2: GetPrev(); break;
+                    default: flag = false; break;
+                }
             }
 
-            Console.WriteLine();
-
-            while (iterator.HasPrev())
+            void GetNext()
             {
-                num = iterator.Prev();
-                Console.Write(num + " ");
+                if (iterator.HasNext())
+                {
+                    num = iterator.Next();
+                    Console.Write(num + " ");
+                }
+            }
+
+            void GetPrev()
+            {
+                if (iterator.HasPrev())
+                {
+                    num = iterator.Prev();
+                    Console.Write(num + " ");
+                }
             }
         }
     }
