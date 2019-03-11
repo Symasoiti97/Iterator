@@ -11,7 +11,7 @@ namespace Iterators
         static void Main(string[] args)
         {
             Client client = new Client();
-            WriteClient wClient = new WriteClient(client);
+            ReadClient wClient = new ReadClient(client);
             wClient.PrintClient();
 
             Console.ReadKey();

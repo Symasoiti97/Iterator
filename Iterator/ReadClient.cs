@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Iterators
 {
-    class WriteClient
+    class ReadClient
     {
         Client client;
 
-        public WriteClient(Client client)
+        public ReadClient(Client client)
         {
             this.client = client;
         }
@@ -19,9 +19,10 @@ namespace Iterators
         {
             double num;
             bool flag = true;
-            IteratorDouble iterator = client.CreateIterator();
 
-            Console.WriteLine("1.Next 2.Prev");
+            Iterator iterator = client.CreateIterator();
+
+            Console.WriteLine("1.Next 2.Prev 3.First");
 
             while (flag)
             {
@@ -31,26 +32,27 @@ namespace Iterators
                 {
                     case ConsoleKey.D1: GetNext(); break;
                     case ConsoleKey.D2: GetPrev(); break;
+                    case ConsoleKey.D3: GetFirst(); break;
                     default: flag = false; break;
                 }
             }
 
             void GetNext()
             {
-                if (iterator.HasNext())
-                {
-                    num = iterator.Next();
-                    Console.Write(num + " ");
-                }
+                num = Convert.ToDouble(iterator.Next());
+                Console.Write(num + " ");
             }
 
             void GetPrev()
             {
-                if (iterator.HasPrev())
-                {
-                    num = iterator.Prev();
-                    Console.Write(num + " ");
-                }
+                num = Convert.ToDouble(iterator.Prev());
+                Console.Write(num + " ");
+            }
+
+            void GetFirst()
+            {
+                num = Convert.ToDouble(iterator.First());
+                Console.Write(num + " ");
             }
         }
     }

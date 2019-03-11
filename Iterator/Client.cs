@@ -8,16 +8,16 @@ namespace Iterators
 {
     class Client
     {
-        List<double> list = new List<double>();
+        List<object> list = new List<object>();
 
         public Client()
         {
-            list.AddRange(new List<double> {1,2,3,4,5});
+            list.AddRange(new List<object> {1,2,3,4,5});
         }
 
-        public IteratorDouble CreateIterator()
+        public Iterator CreateIterator()
         {
-            return new IteratorDouble(list);
+            return new Iterator(list);
         }
     }
 }

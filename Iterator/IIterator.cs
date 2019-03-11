@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace Iterators
 {
-    interface IIterator<T>
+    interface IIterator
     {
-        bool HasNext();
-        bool HasPrev();
-        T Next();
-        T Prev();
+        object Next();
+        object Prev();
+        object First();
     }
 }
